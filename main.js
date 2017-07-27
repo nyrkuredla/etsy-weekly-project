@@ -16,7 +16,6 @@ function question1 () {
 
   let avgPrice = (itemPrice / data.length);
   console.log(avgPrice);
-  return avgPrice;
 }
 
 
@@ -25,6 +24,13 @@ function question1 () {
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2 () {
   // Answer:
+  let priceRangeItems = [];
+  for (i = 0; i < data.length; i++) {
+    if ((data[i].price >= 14) && (data[i].price <= 18)) {
+      priceRangeItems.push(data[i].title);
+    }
+  }
+  console.log(priceRangeItems);
 }
 
 
@@ -32,12 +38,30 @@ function question2 () {
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
   // Answer:
+  let gbpCurrencyItem = "";
+  let gbpCurrencyPrice = 0;
+  for (i = 0; i < data.length; i++) {
+    if (data[i].currency_code === "GBP") {
+      gbpCurrencyItem = gbpCurrencyItem + data[i].title;
+      gbpCurrencyPrice = gbpCurrencyPrice + data[i].price;
+    }
+  }
+  console.log(gbpCurrencyItem + " costs " + gbpCurrencyPrice + " pounds.");
 }
 
 
 // 4: Display a list of all items who are made of wood.
 function question4 () {
   // Answer:
+  let woodItems = [];
+  for (i = 0; i < data.length; i++) {
+    for (j = 0; j < data[i].materials.length; j++) {
+      if (data[i].materials[j] === "wood") {
+        woodItems.push(data[i].title);
+      }
+    }
+  }
+  console.log();
 }
 
 
