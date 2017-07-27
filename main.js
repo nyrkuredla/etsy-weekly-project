@@ -61,7 +61,11 @@ function question4 () {
       }
     }
   }
-  console.log();
+  let woodItemsList = "";
+  for (i = 0; i < woodItems.length; i++) {
+    woodItemsList = woodItemsList + woodItems[i] + " is made of wood. \n";
+  }
+  console.log(woodItemsList);
 }
 
 
@@ -69,6 +73,16 @@ function question4 () {
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
+  let eightMaterialsList = "";
+  for (i = 0; i < data.length; i++) {
+    if (data[i].materials.length >= 8) {
+      eightMaterialsList = eightMaterialsList + data[i].title + " has " + data[i].materials.length + " materials: \n";
+      for (j = 0; j < data[i].materials.length; j++) {
+        eightMaterialsList = eightMaterialsList + data[i].materials[j] + "\n";
+      }
+    }
+  }
+  console.log(eightMaterialsList);
 }
 
 
@@ -76,4 +90,11 @@ function question5 () {
 // Answer:
 function question6 () {
   // Answer:
+  let sellerMadeItems = 0;
+  for (i = 0; i < data.length; i++) {
+    if (data[i].who_made === "i_did") {
+      sellerMadeItems = sellerMadeItems + 1;
+    }
+  }
+  console.log(sellerMadeItems + " items were made by their sellers.");
 }
